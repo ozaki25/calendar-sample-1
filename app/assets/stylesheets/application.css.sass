@@ -1,0 +1,36 @@
+//= require_self
+
+//@import initializers/**/*
+
+// import libraries
+@import bootstrap
+@import compass/utilities
+@import compass/css3
+@import compass/support
+@import font-awesome
+@import zurui-sass
+
+//@import shared/**/*
+//@import views/**/*
+
+body
+  margin-top: 80px
+
+.calendar__weekday
+  padding: 8px
+  width: 80px
+  font-weight: bold
+  text-align: center
+
+= calendar-date
+  padding: 8px
+  height: 80px
+  text-align: right
+  font-size: 13px
+
+.calendar__date
+  +calendar-date
+
+.calendar__out-of-date
+  +calendar-date
+  color: #d0d0d0
