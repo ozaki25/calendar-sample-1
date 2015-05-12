@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @lending_history.date
+%p
+  %b License:
+  = @lending_history.license
+
+= link_to 'Edit', edit_lending_history_path(@lending_history)
+\|
+= link_to 'Back', lending_histories_path

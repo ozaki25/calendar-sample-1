@@ -1,7 +1,7 @@
 this.Calendar = React.createClass({
   getInitialState: function() {
     return {
-      baseDate: moment(new Date())
+      baseDate: moment(this.props.today)
     };
   },
   today: function() {
@@ -22,7 +22,7 @@ this.Calendar = React.createClass({
     <button className="btn btn-default next" type="button" onClick={this.nextMonth}>&gt;</button>
     <span>{this.state.baseDate.clone().format('YYYY年M月')}</span>
   </div>
-  <CalendarMonth baseDate={this.state.baseDate} />
+  <CalendarMonth baseDate={this.state.baseDate} lendingHistories={this.props.date} />
 </div>
     )
   }
