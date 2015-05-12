@@ -1,12 +1,9 @@
 development:
-  adapter:  postgresql
-  encoding: unicode
-  database: calendar_sample_development
-  pool:     5
+  adapter: mysql2
+  encoding: utf8
+  database: react_calendar_development
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
 
-test:
-  adapter:  postgresql
-  host:     localhost
-  encoding: unicode
-  database: calendar_sample_test
-  pool:     5
