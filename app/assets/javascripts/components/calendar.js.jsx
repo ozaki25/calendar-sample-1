@@ -22,7 +22,7 @@ this.Calendar = React.createClass({
     <button className="btn btn-default next" type="button" onClick={this.nextMonth}>&gt;</button>
     <span>{this.state.baseDate.clone().format('YYYY年M月')}</span>
   </div>
-  <CalendarMonth baseDate={this.state.baseDate} lendingHistories={this.props.date} />
+  <CalendarMonth baseDate={this.state.baseDate} lendingHistories={this.props.lendingHistories} />
 </div>
     )
   }
@@ -40,7 +40,7 @@ this.CalendarMonth = React.createClass({
       })}
     </tr>
   </thead>
-  <CalendarDay baseDate={this.props.baseDate} />
+  <CalendarDay baseDate={this.props.baseDate} lendingHistories={this.props.lendingHistories} />
 </table>
     )
   }
@@ -53,11 +53,23 @@ this.CalendarDay = React.createClass({
     var endDate = baseDate.clone().endOf("month").day(6);
     var totalDays = endDate.diff(startDate, "days") + 1;
     var days = [];
+    var lendingHistories = this.props.lendingHistories;
 
     _.times(totalDays, function(n) {
       var day = startDate.clone().add(n, "days");
       var className = day.format("M") == baseDate.format("M") ? "calendar__date" : "calendar__out-of-date";
-      days.push(<td key={n} className={className}>{day.format("M/D")}</td>);
+      var lendings =[];
+      _.forEach((lendingHistories), function(lending, i) {
+	if(day.format("YYYYMMDD") == moment(new Date(lending.date)).format("YYYYMMDD")) {
+	  _.forEach((lending.licenses), function(license, j) {
+	    console.log(license);
+	    lendings.push(<div key={i + j}>{license.name} : {license.count}件</div>);
+	  });
+	}
+      });
+
+
+      days.push(<td key={n} className={className}><div>{day.format("M/D")}</div>{lendings}</td>);
     });
     var weeks = _.chunk(days, 7);
     return(
