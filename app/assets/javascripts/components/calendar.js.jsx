@@ -85,8 +85,9 @@ this.Lendings = React.createClass({
       if(day.isSame(new Date(lendingHistory.date), "day")) {
         _.forEach((lendingHistory.licenses), function(license, j) {
 	  console.log(license);
+	  var style = {backgroundColor: license.color};
 	  lendings.push(
-<div key={i + j} className="calendar__lending">
+<div key={i + j} className="calendar__lending" style={style}>
   <div className="row">
     <div className="col-md-6 calendar__lending-name">{license.name}</div>
     <div className="col-md-6 calendar__lending-number"><span className="number">{license.count}</span>件</div>
