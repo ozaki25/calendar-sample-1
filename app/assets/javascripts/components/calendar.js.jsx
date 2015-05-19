@@ -63,13 +63,23 @@ this.CalendarDay = React.createClass({
 	if(day.format("YYYYMMDD") == moment(new Date(lending.date)).format("YYYYMMDD")) {
 	  _.forEach((lending.licenses), function(license, j) {
 	    console.log(license);
-	    lendings.push(<div key={i + j}>{license.name} : {license.count}件</div>);
+	    lendings.push(
+<div key={i + j} className="calendar__lending">
+  <div className="row">
+    <div className="col-md-6 calendar__lending-name">{license.name}</div>
+    <div className="col-md-6 calendar__lending-number"><span className="number">{license.count}</span>件</div>
+  </div>
+</div>
+            );
 	  });
 	}
       });
-
-
-      days.push(<td key={n} className={className}><div>{day.format("M/D")}</div>{lendings}</td>);
+      days.push(
+<td key={n} className={className}>
+  <div className="calendar__day">{day.format("M/D")}</div>
+  {lendings}
+</td>
+      );
     });
     var weeks = _.chunk(days, 7);
     return(
