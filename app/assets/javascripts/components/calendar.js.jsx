@@ -58,26 +58,10 @@ this.CalendarDay = React.createClass({
     _.times(totalDays, function(n) {
       var day = startDate.clone().add(n, "days");
       var className = day.format("M") == baseDate.format("M") ? "calendar__date" : "calendar__out-of-date";
-      var lendings =[];
-      _.forEach((lendingHistories), function(lendingHistory, i) {
-        if(day.isSame(new Date(lendingHistory.date), "day")) {
-          _.forEach((lendingHistory.licenses), function(license, j) {
-	    console.log(license);
-	    lendings.push(
-<div key={i + j} className="calendar__lending">
-  <div className="row">
-    <div className="col-md-6 calendar__lending-name">{license.name}</div>
-    <div className="col-md-6 calendar__lending-number"><span className="number">{license.count}</span>件</div>
-  </div>
-</div>
-            );
-	  });
-	}
-      });
       days.push(
 <td key={n} className={className}>
   <div className="calendar__day">{day.format("M/D")}</div>
-  {lendings}
+  <Lendings day={day} lendingHistories={lendingHistories} />
 </td>
       );
     });
@@ -89,5 +73,29 @@ this.CalendarDay = React.createClass({
         })}
       </tbody>
     )
+  }
+});
+
+this.Lendings = React.createClass({
+  render: function() {
+    var day = this.props.day;
+    var lendingHistories = this.props.lendingHistories;
+    var lendings =[];
+    _.forEach((lendingHistories), function(lendingHistory, i) {
+      if(day.isSame(new Date(lendingHistory.date), "day")) {
+        _.forEach((lendingHistory.licenses), function(license, j) {
+	  console.log(license);
+	  lendings.push(
+<div key={i + j} className="calendar__lending">
+  <div className="row">
+    <div className="col-md-6 calendar__lending-name">{license.name}</div>
+    <div className="col-md-6 calendar__lending-number"><span className="number">{license.count}</span>件</div>
+  </div>
+</div>
+            );
+	  });
+	}
+      });
+    return(<div>{lendings}</div>);
   }
 });
