@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512063601) do
+ActiveRecord::Schema.define(version: 20150519073350) do
 
   create_table "lending_histories", force: :cascade do |t|
     t.date     "date"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150512063601) do
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "color",      limit: 255
   end
 
   add_foreign_key "lending_histories", "licenses"
