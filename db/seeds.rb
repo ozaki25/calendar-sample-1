@@ -7,25 +7,45 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 License.create(name: "100VU", color: "#80CBC4").tap do |license|
-  (1..9).each do |n|
-    license.lending_histories.create!(date: "2015051#{n}")
+  (1..4).each do |a|
+    (1..9).each do |n|
+      license.lending_histories.create!(date: "2015050#{n}")
+    end
+    (10..30).each do |n|
+      license.lending_histories.create!(date: "201505#{n}")
+    end
   end
 end
 
 License.create(name: "250VU", color: "#42A5F5").tap do |license|
-  (1..9).each do |n|
-    license.lending_histories.create!(date: "2015051#{n}")
+  (1..3).each do |a|
+    (1..9).each do |n|
+      license.lending_histories.create!(date: "2015050#{n}")
+    end
+    (10..30).each do |n|
+      license.lending_histories.create!(date: "201505#{n}")
+    end
   end
 end
 
 License.create(name: "500VU", color: "#7E57C2").tap do |license|
-  (1..9).each do |n|
-    license.lending_histories.create!(date: "2015051#{n}")
+  (1..2).each do |a|
+    (1..9).each do |n|
+      license.lending_histories.create!(date: "2015050#{n}")
+    end
+    (10..30).each do |n|
+      license.lending_histories.create!(date: "201505#{n}")
+    end
   end
 end
 
 License.create(name: "1000VU", color: "#EF5350").tap do |license|
-  (1..9).each do |n|
-    license.lending_histories.create!(date: "2015051#{n}")
+  (1..1).each do |a|
+    (1..9).each do |n|
+      license.lending_histories.create!(date: "2015050#{n}")
+    end
+    (10..30).each do |n|
+      license.lending_histories.create!(date: "201505#{n}")
+    end
   end
 end
