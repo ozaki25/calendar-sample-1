@@ -44,6 +44,15 @@ class LendingHistoriesController < ApplicationController
         ]
       },
       {
+        date: '2015-06-01',
+        licenses: [
+          {name: 'aaa', count: 1000},
+          {name: 'bbb', count: 9000},
+          {name: 'ccc', count: 8000},
+          {name: 'ddd', count: 7000}
+        ]
+      },
+      {
         date: '2015-05-14',
         licenses: [
           {name: '100VU', count: 10},

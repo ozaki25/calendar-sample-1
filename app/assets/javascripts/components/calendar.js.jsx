@@ -59,9 +59,9 @@ this.CalendarDay = React.createClass({
       var day = startDate.clone().add(n, "days");
       var className = day.format("M") == baseDate.format("M") ? "calendar__date" : "calendar__out-of-date";
       var lendings =[];
-      _.forEach((lendingHistories), function(lending, i) {
-	if(day.format("YYYYMMDD") == moment(new Date(lending.date)).format("YYYYMMDD")) {
-	  _.forEach((lending.licenses), function(license, j) {
+      _.forEach((lendingHistories), function(lendingHistory, i) {
+        if(day.isSame(new Date(lendingHistory.date), "day")) {
+          _.forEach((lendingHistory.licenses), function(license, j) {
 	    console.log(license);
 	    lendings.push(
 <div key={i + j} className="calendar__lending">
