@@ -1,6 +1,7 @@
 class LendingHistoriesController < ApplicationController
   def index
-    @lending_histories = [
+    @lending_histories = LendingHistory.group(:date)
+    @lending_histories_ = [
       {
         date: '2015-05-10',
         licenses: [
