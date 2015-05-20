@@ -1,3 +1,4 @@
+# coding: utf-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -6,6 +7,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+License.create(name: "コントローラ", color: "#8D6E63")
+License.create(name: "専用区画 win7IE9", color: "#FFA726")
 License.create(name: "100VU", color: "#80CBC4").tap do |license|
   (1..4).each do |a|
     (1..9).each do |n|
