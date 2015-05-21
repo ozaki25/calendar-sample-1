@@ -3,6 +3,6 @@ json.lendingHistories @lending_histories do |lending_history|
   json.licenses License.all do |license|
     json.name license.name
     json.color license.color
-    json.count LendingHistory.where(date: lending_history.date).where(license_id: license.id).count
+    json.count license.max_num - LendingHistory.where(date: lending_history.date).where(license_id: license.id).count
   end
 end
