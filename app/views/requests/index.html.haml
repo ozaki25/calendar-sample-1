@@ -1,4 +1,4 @@
-%h5= @requests.first.date
+%h5= @date
 .row
   .col-md-6
     .panel.panel-success
@@ -12,7 +12,7 @@
             %th 専用区画数
             %th ブロック数
         %tbody
-          - @requests.each do |request|
+          - @waiting_requests.each do |request|
             %tr
               %td= request.name
               %td= request.department
@@ -31,7 +31,7 @@
             %th 専用区画数
             %th ブロック数
         %tbody
-          - @requests.each do |request|
+          - @approved_requests.each do |request|
             %tr
               %td= request.name
               %td= request.department

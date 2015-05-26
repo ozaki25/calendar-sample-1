@@ -1,10 +1,12 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_date, only: [:index]
 
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.where(date: (Date.parse(params[:date]) rescue Date.current))
+    @waiting_requests = Request.where(date: @date).with_status(:waiting)
+    @approved_requests = Request.where(date: @date).with_status(:approved)
   end
 
   # GET /requests/1
@@ -70,5 +72,9 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.require(:request).permit(:date, :name, :department, :status, :controller, :division, :block)
+    end
+
+    def set_date
+      @date = Date.parse(params[:date]) rescue Date.current
     end
 end
