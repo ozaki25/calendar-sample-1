@@ -73,3 +73,4 @@ end
 gem 'momentjs-rails'
 gem 'react-rails', '~> 1.0'
 gem 'lodash-rails'
+gem 'enumerize'
