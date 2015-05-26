@@ -1,5 +1,5 @@
 class LendingHistoriesController < ApplicationController
-  def index
+  def show
     @lending_histories = LendingHistory.group(:date)
   end
 end

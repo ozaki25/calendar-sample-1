@@ -1,1 +1,1 @@
-json.extract! @lending_history, :id, :date, :license_id, :created_at, :updated_at
+json.partial! 'lending_histories/index'
