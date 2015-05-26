@@ -4,7 +4,10 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    @year = params["year"].to_i
+    @month = params["month"].to_i
+    @day = params["day"].to_i
+    @requests = Request.where(date: Date.new(@year, @month, @day))
   end
 
   # GET /requests/1
