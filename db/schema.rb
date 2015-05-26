@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521025001) do
+ActiveRecord::Schema.define(version: 20150526024431) do
 
   create_table "lending_histories", force: :cascade do |t|
     t.date     "date"
     t.integer  "license_id", limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "request_id", limit: 4
   end
 
   add_index "lending_histories", ["license_id"], name: "index_lending_histories_on_license_id", using: :btree
+  add_index "lending_histories", ["request_id"], name: "index_lending_histories_on_request_id", using: :btree
 
   create_table "licenses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -30,5 +32,18 @@ ActiveRecord::Schema.define(version: 20150521025001) do
     t.integer  "max_num",    limit: 4
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.date     "date"
+    t.string   "name",       limit: 255
+    t.string   "department", limit: 255
+    t.string   "status",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "controller", limit: 4
+    t.integer  "division",   limit: 4
+    t.integer  "block",      limit: 4
+  end
+
   add_foreign_key "lending_histories", "licenses"
+  add_foreign_key "lending_histories", "requests"
 end

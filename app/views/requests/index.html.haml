@@ -1,0 +1,33 @@
+%h1 Listing requests
+
+%table
+  %thead
+    %tr
+      %th Date
+      %th Name
+      %th Department
+      %th Status
+      %th Controller
+      %th Division
+      %th Block
+      %th
+      %th
+      %th
+
+  %tbody
+    - @requests.each do |request|
+      %tr
+        %td= request.date
+        %td= request.name
+        %td= request.department
+        %td= request.status
+        %td= request.controller
+        %td= request.division
+        %td= request.block
+        %td= link_to 'Show', request
+        %td= link_to 'Edit', edit_request_path(request)
+        %td= link_to 'Destroy', request, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Request', new_request_path

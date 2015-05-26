@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @request.date
+%p
+  %b Name:
+  = @request.name
+%p
+  %b Department:
+  = @request.department
+%p
+  %b Status:
+  = @request.status
+%p
+  %b Controller:
+  = @request.controller
+%p
+  %b Division:
+  = @request.division
+%p
+  %b Block:
+  = @request.block
+
+= link_to 'Edit', edit_request_path(@request)
+\|
+= link_to 'Back', requests_path
