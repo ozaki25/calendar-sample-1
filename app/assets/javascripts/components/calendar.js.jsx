@@ -23,7 +23,7 @@ this.Calendar = React.createClass({
     <button className="btn btn-default next" type="button" onClick={this.nextMonth}>&gt;</button>
     <span>{this.state.baseDate.clone().format('YYYY年M月')}</span>
   </div>
-  <CalendarMonth baseDate={this.state.baseDate} lendingHistories={this.state.lendingHistories} />
+  <CalendarMonth baseDate={this.state.baseDate} lendingHistories={this.state.lendingHistories} requestsPath={this.props.requestsPath} />
 </div>
     )
   }
@@ -41,7 +41,7 @@ this.CalendarMonth = React.createClass({
       })}
     </tr>
   </thead>
-  <CalendarDay baseDate={this.props.baseDate} lendingHistories={this.props.lendingHistories} />
+  <CalendarDay baseDate={this.props.baseDate} lendingHistories={this.props.lendingHistories} requestsPath={this.props.requestsPath} />
 </table>
     )
   }
@@ -55,14 +55,18 @@ this.CalendarDay = React.createClass({
     var totalDays = endDate.diff(startDate, "days") + 1;
     var days = [];
     var lendingHistories = this.props.lendingHistories;
+    var requestsPath = this.props.requestsPath;
 
     _.times(totalDays, function(n) {
       var day = startDate.clone().add(n, "days");
       var className = day.format("M") == baseDate.format("M") ? "calendar__date" : "calendar__out-of-date";
+      var path = requestsPath + "?date=" + day.clone().format("YYYY-MM-DD");
       days.push(
 <td key={n} className={className}>
-  <div className="calendar__day">{day.format("M/D")}</div>
-  <Lendings day={day} lendingHistories={lendingHistories} />
+  <a href={path}>
+    <div className="calendar__day">{day.format("M/D")}</div>
+    <Lendings day={day} lendingHistories={lendingHistories} />
+  </a>
 </td>
       );
     });
