@@ -1,10 +1,10 @@
 = simple_form_for(@request, wrapper: :horizontal_form , html: { class: 'form-horizontal' }) do |f|
   = f.error_notification
 
-  = f.input :date
-  = f.input :name 
-  = f.input :department
-  = f.input :controller
-  = f.input :division
-  = f.input :block
+  = f.input :date, label: '申請日'
+  = f.input :name, label: '名前'
+  = f.input :department, label: '部署'
+  = f.input :controller, label: 'コントローラ数'
+  = f.input :division, label: '使用区画数'
+  = f.input :block, label: 'VU数'
   = f.button :submit, :class => 'btn-primary'
