@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :requests
   resources :licenses
-  resources :lending_histories
+  resources :requests do
+    resources :lending_histories
+  end
   root to: 'home#index'
 end
