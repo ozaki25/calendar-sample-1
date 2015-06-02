@@ -1,3 +1,16 @@
-= render 'form'
+.row
+  .col-md-6.col-md-offset-3
+    .panel.panel-primary
+      .panel-heading 新規申請作成
+      .panel-body
+        = simple_form_for(@request, wrapper: :horizontal_form , html: { class: 'form-horizontal' }) do |f|
+          = f.error_notification
+          = f.input :date, label: '申請日', use_month_numbers: true, date_separator: '/', input_html: { style: 'display: inline-block; width: 100px;' }
+          = f.input :name, label: '名前', placeholder: '尾崎 勇一'
+          = f.input :department, label: '部署', placeholder: 'ITプロデュース部'
+          = f.input :controller, label: 'コントローラ数', placeholder: '3'
+          = f.input :division, label: '使用区画数', placeholder: '5'
+          = f.input :block, label: 'VU数', placeholder: '1000'
+          = f.button :submit, :class => 'btn-primary'
 
 = link_to 'Back', requests_path
