@@ -8,9 +8,9 @@
           %tr
             %th 名前
             %th 部署
-            %th コントローラ数
-            %th 専用区画数
-            %th ブロック数
+            %th コントローラ
+            %th 専用区画
+            %th ブロック
             %th
         %tbody
           - @waiting_requests.each do |request|
@@ -30,9 +30,9 @@
           %tr
             %th 名前
             %th 部署
-            %th コントローラ数
-            %th 専用区画数
-            %th ブロック数
+            %th コントローラ
+            %th 専用区画
+            %th ブロック
         %tbody
           - @approved_requests.each do |request|
             %tr
