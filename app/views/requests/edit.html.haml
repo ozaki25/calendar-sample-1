@@ -11,6 +11,8 @@
           = f.input :controller, label: 'コントローラ数', placeholder: '3'
           = f.input :division, label: '使用区画数', placeholder: '5'
           = f.input :block, label: 'VU数', placeholder: '1000'
+          %br
+          %h4 ライセンスの割振り
           - License.all.each do |license|
             = f.input :block, as: :string, label: license.name, hint: "残数：#{license.max_num - LendingHistory.where(date: @request.date).where(license_id: license.id).count}"
           = f.button :submit, :class => 'btn-primary'
