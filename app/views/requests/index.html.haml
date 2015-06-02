@@ -11,6 +11,7 @@
             %th コントローラ数
             %th 専用区画数
             %th ブロック数
+            %th
         %tbody
           - @waiting_requests.each do |request|
             %tr
@@ -19,6 +20,8 @@
               %td= request.controller
               %td= request.division
               %td= request.block
+              %td
+                = link_to '編集', edit_request_path(request.id), class: 'btn btn-primary btn-xs'
   .col-md-6
     .panel.panel-default
       .panel-heading 割り当て済
