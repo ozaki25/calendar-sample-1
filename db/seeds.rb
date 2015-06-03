@@ -7,9 +7,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-License.create(name: "コントローラ", color: "#8D6E63", max_num: 20)
-License.create(name: "専用区画 win7IE9", color: "#FFA726", max_num: 30)
-License.create(name: "100VU", color: "#80CBC4", max_num: 10).tap do |license|
+License.create(name: "コントローラ", color: "#FFF9C4", max_num: 20)
+License.create(name: "専用区画 win7IE9", color: "#FFE0B2", max_num: 30)
+License.create(name: "100VU", color: "#DCEDC8", max_num: 10).tap do |license|
   (1..4).each do |a|
     (1..9).each do |n|
       request = Request.create(date: "2015060#{n}", name: "テストユーザ", department: "ITプロデュース部", controller: 2, division: 1, block: 2000)
@@ -22,7 +22,7 @@ License.create(name: "100VU", color: "#80CBC4", max_num: 10).tap do |license|
   end
 end
 
-License.create(name: "250VU", color: "#42A5F5", max_num: 8).tap do |license|
+License.create(name: "250VU", color: "#B2EBF2", max_num: 8).tap do |license|
   (1..3).each do |a|
     (1..9).each do |n|
       request = Request.create(date: "2015060#{n}", name: "テストユーザ", department: "ITプロデュース部", controller: 2, division: 1, block: 2000)
@@ -35,7 +35,7 @@ License.create(name: "250VU", color: "#42A5F5", max_num: 8).tap do |license|
   end
 end
 
-License.create(name: "500VU", color: "#7E57C2", max_num: 3).tap do |license|
+License.create(name: "500VU", color: "#C5CAE9", max_num: 3).tap do |license|
   (1..2).each do |a|
     (1..9).each do |n|
       request = Request.create(date: "2015060#{n}", name: "テストユーザ", department: "ITプロデュース部", controller: 2, division: 1, block: 2000)
@@ -48,7 +48,7 @@ License.create(name: "500VU", color: "#7E57C2", max_num: 3).tap do |license|
   end
 end
 
-License.create(name: "1000VU", color: "#EF5350", max_num: 2).tap do |license|
+License.create(name: "1000VU", color: "#F8BBD0", max_num: 2).tap do |license|
   (1..1).each do |a|
     (1..9).each do |n|
       request = Request.create(date: "2015060#{n}", name: "テストユーザ", department: "ITプロデュース部", controller: 2, division: 1, block: 2000)
